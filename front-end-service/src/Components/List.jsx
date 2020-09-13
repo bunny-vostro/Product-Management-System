@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "./Loader";
 
@@ -9,7 +9,6 @@ const List = (props) => {
     const [products, setProducts] = useState([]);
     const [showLoader, setShowLoader] = useState(false);
     const [searchText, setSearchText] = useState("");
-    const [resetValue, setResetValue] = useState(false);
 
     useEffect(() => {
         setShowLoader(true);
@@ -28,7 +27,7 @@ const List = (props) => {
             setProducts([]);
             setShowLoader(false);
         });
-    }, [searchText, resetValue]);
+    }, [searchText]);
 
     function onDelete(id, index) {
         setShowLoader(true);
